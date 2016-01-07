@@ -1,0 +1,5 @@
+pandas
+selenium
+beautifulsoup4
+clarifai
+pillow

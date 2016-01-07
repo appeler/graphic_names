@@ -1,0 +1,80 @@
+## Validation
+
+Set working directory and merge
+
+```{r}
+
+setwd(githubdir)
+setwd("clarifai_gender/validate/")
+
+s100 <- read.csv("output-img-tag-250x100.csv")
+s75  <- read.csv("output-img-tag-500x75.csv")
+s50  <- read.csv("output-img-tag-750x50.csv")
+
+g_samp <- rbind(s100, s75, s50) 
+```
+
+Subset on clarifai status = ok
+
+```{r}
+sg_samp <- subset(g_samp, clarifai_status=="OK")
+```
+
+Let us create a wordcloud by gender to see what we get:
+
+```{r}
+library(tm)
+library(wordcloud)
+library(RColorBrewer)
+
+# clean tags
+clean_tags <- sapply(sg_samp$tags, function(x) gsub("u'|\\[|\\]|',|'", "", x))
+sg_samp$clean_tags <- unname(clean_tags)
+
+# words by gender
+fem <- paste(sg_samp$clean_tags[sg_samp$gender=="F"], collapse=" ")
+mal <- paste(sg_samp$clean_tags[sg_samp$gender=="M"], collapse=" ")
+
+# Women
+dtm <- TermDocumentMatrix(VCorpus(VectorSource(fem)))
+m <- as.matrix(dtm)
+v <- sort(rowSums(m), decreasing=TRUE)
+d <- data.frame(word = names(v), freq=v)
+head(d, 10)
+
+set.seed(1234)
+with(d[-(1:10),], wordcloud(words = word, freq = freq, min.freq = 1,
+          max.words=200, random.order=FALSE, rot.per=0.35, 
+          colors=brewer.pal(8, "Dark2")))
+
+# Men
+dtm <- TermDocumentMatrix(VCorpus(VectorSource(mal)))
+m <- as.matrix(dtm)
+v <- sort(rowSums(m), decreasing=TRUE)
+d <- data.frame(word = names(v), freq=v)
+head(d, 30)
+
+set.seed(1234)
+with(d[-(1:10),], wordcloud(words = word, freq = freq, min.freq = 3,
+          max.words=200, random.order=FALSE, rot.per=0.35, 
+          colors=brewer.pal(8, "Dark2")))
+```
+
+Now validate by freq of m/w: 
+
+```{r validation}
+# Load some libs
+library(dplyr)
+library(magrittr)
+
+counter <- group_by(sg_samp, name) %>% 
+           summarize(f = mean(predicted=="F"), 
+           m = mean(predicted=="M"), 
+	       fem = mean(grepl("\\bwoman\\b|girl|\\bwomen\\b", tags)), 
+	       men = mean(grepl("\\bman\\b|boy|\\bmen\\b", tags)),  
+	       g = mean(gender=="F"))
+```
+
+```{r}
+with(counter, table(fem > men, g))
+```
