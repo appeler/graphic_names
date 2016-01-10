@@ -1,5 +1,16 @@
 ## Google Image Search (only Face type)
 
+The script takes a csv with first names ([sample input file](sample_in.csv)), searches for images and returns links to the image. In particular, the script appends the following two columns: 
+
+* `image_url` - URL link to the image
+* `image_order` - Order of image in search results
+
+### Installation
+
+To begin using the script, first install the [requirements](../requirements.txt). Then run the downloaded script.
+
+### Usage
+
 ```
 usage: google_image_search.py [-h] [-c COUNT] [-o OUTPUT] [--no-header]
                               [-r RETRY]
@@ -24,10 +35,6 @@ optional arguments:
 ### Example
 
 ```
-python google_image_search.py output.csv
+python google_image_search.py sample_in.csv
 ```
 
-Default output file will be save as `output-img.csv`. There are two columns added by the script.
-
-* `image_url` - URL link to the image
-* `image_order` - Order of image in search results
