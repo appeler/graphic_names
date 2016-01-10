@@ -1,6 +1,8 @@
 ## Get image tags from Clarifai
 
-[Clarifai](http://clarifai.com) for now only tags ".jpg", ".jpeg" and ".png" images.
+[Clarifai](http://clarifai.com) for now only tags ".jpg", ".jpeg" and ".png" images. So limit yourself to those images. 
+
+To begin, install the [requirements](../requirements.txt). In particular, the script depends on pandas and [clarifai API client](https://github.com/Clarifai/clarifai-python).
 
 Before running the script, please set `app_id` and `app_secret` in [`clarifai.cfg`](clarifai.cfg) or make sure the environment variables `CLARIFAI_APP_ID` and `CLARIFAI_APP_SECRET` are set.
 
@@ -11,7 +13,7 @@ usage: clarifai_tag.py [-h] [--config CONFIG] [-c COUNT] [-b BATCH]
 
 Clarifai Tag API
 
-positional arguments:
+positional arguments:\github\clarifai_gender\dev\scripts\get_clarifai_tags
   input                 Input file name
 
 optional arguments:
@@ -31,7 +33,7 @@ optional arguments:
 To get at least 20 tags per image:
 
 ```
-python clarify_tag.py -c 20 output-img.csv
+python clarifai_tag.py sample_in.csv -c 20 
 ```
 
 Default name of the output file is `output-img-tag.csv`. The script appends the following new columns:
