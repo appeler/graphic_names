@@ -1,6 +1,6 @@
 ## Stratified random sample
 
-The script allows us to do a random stratified sample (strata = male/female).
+The script gets a random stratified sample (strata = male/female).
 
 Note: The [script](subset_img_url.py) is used only during validation.
 
@@ -30,7 +30,6 @@ Run the script to output 100 stratified random sample male/female first names. (
 
 ```
 python sample_input.py -c 100 -t state data/india-mps-all-gender.csv.bz2
-
 ```
 
-Default output file will be `output.csv`
+Default name of the output file: `output.csv`
