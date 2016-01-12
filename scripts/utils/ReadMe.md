@@ -1,12 +1,13 @@
 ## Stratified random sample
 
-The script is used only during validation.
+The script allows us to do a random stratified sample (strata = male/female).
+
+Note: The [script](subset_img_url.py) is used only during validation.
+
 ```
 usage: sample_input.py [-h] [-o OUTPUT] [-c COUNT] [-m MIN_LEN] [-t TYPE]
                        [--no-header]
                        input
-
-Stratified random sample male/female first name
 
 positional arguments:
   input                 Input file name
@@ -23,7 +24,7 @@ optional arguments:
   --no-header           Output without header at the first row
 ```
 
-#### Example
+### Example
 
 Run the script to output 100 stratified random sample male/female first names. (50/50 men/women)
 
