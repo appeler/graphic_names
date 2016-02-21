@@ -186,7 +186,7 @@ if __name__ == "__main__":
                 except:
                     retry += 1
                     time.sleep(retry)
-                    print("Retry #{}".format(retry))
+                    print("Retry #{0}".format(retry))
             for i, u in enumerate(urls):
                 row['ref_id'] = ref_id
                 row['id'] = _id

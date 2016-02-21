@@ -127,7 +127,7 @@ if __name__ == '__main__':
                             except Exception as e:
                                 import traceback
                                 traceback.print_exc()
-                                print('Name: {}, URL: {}'.format(name, url))
+                                print('Name: {0}, URL: {1}'.format(name, url))
                         begin += need
                     except ApiThrottledError as e:
                         print(e)
