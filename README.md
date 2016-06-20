@@ -5,6 +5,7 @@ Are men covered more often in business news than women? To answer the question a
 Here we investigate a way of getting such data for 'Indian' names. We pair Google image search (via Google custom search API) with [clarifai.com](http://clarifai.com). In particular, we search for images using first names, and then get tags of those images via [clarifai](http://clarifai.com). We next count tags carrying information about gender--- man, men, boy, woman, women, girl. And classify based on whether 'male' tags are more common (probable) than 'female'. We validate the method using a dataset of names for which the gender is known. 
 
 A few caveats and notes:   
+
 1. Images that we find via Google image search are not constrained to a country (though this constraint can be added).   
 
 2. Images returned by Google image search are sometimes close replicas, if not duplicates, of each others. This should not matter, but it is something to be aware of.   
