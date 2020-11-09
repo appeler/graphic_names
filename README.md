@@ -1,4 +1,4 @@
-## Clarifai the Gender of a Name
+## Graphic Names: Classify Names Using Google Image Search and Clarifai
 
 Are men covered more often in business news than women? To answer the question and questions like these using text corpora, we need a way to infer gender based on the (first) name. In the US, one can easily infer the gender based on the first name using the data made available by the SSA and the Census. No such comparable data, however, exists for many other countries (and languages). 
 
