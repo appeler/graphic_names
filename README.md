@@ -1,16 +1,16 @@
 ## Graphic Names: Classify Names Using Google Image Search and Clarifai
 
-Are men covered more often in business news than women? To answer the question and questions like these using text corpora, we need a way to infer gender based on the (first) name. In the US, one can easily infer the gender based on the first name using the data made available by the SSA and the Census. No such comparable data, however, exists for many other countries (and languages). 
+Are men covered more often in business news than women? To answer the question and questions like that using text corpora, we need a way to infer gender based on the (first) name. In the US, one can easily infer the gender based on the first name using the data made available by the SSA and the Census. No such comparable data, however, exists for many other countries (and languages).
 
-Here, we investigate how to get such data for 'Indian' names. We pair Google image search (via Google custom search API) with [clarifai.com](http://clarifai.com). In particular, we search for images using first names and then get tags for those images via [clarifai](http://clarifai.com). We next count tags carrying information about gender--- man, men, boy, woman, women, girl. And classify based on whether 'male' tags are more common (probable) than 'female'. We validate the method using a dataset of names for which the gender is known. 
+Here, we investigate how to get such data for Indian names. We pair Google image search (via Google custom search API) with [Clarifai.com](http://clarifai.com). In particular, we search for images using first names and then get tags for those images via [Clarifai](http://clarifai.com). We next count tags carrying information about gender--- man, men, boy, woman, women, girl. And classify based on whether 'male' tags are more common (probable) than 'female'. We validate the method using a dataset of names for which the gender is known. 
 
-A few caveats and notes:   
+A few caveats and notes:
 
 1. Images that we find via Google image search are not constrained to a country (though this constraint can be added).   
 
-2. Images returned by Google image search are sometimes close replicas, if not duplicates, of each other. This should not matter, but it is something to be aware of.   
+2. Images returned by Google image search are sometimes close replicas, if not duplicates, of each other. This should not matter, but it is something to be aware of.
 
-3. Even if we were to get images hosted on websites located in a country (or some version of this), they would still not be a representative set of people (in a country, in that language) with that name.   
+3. Even if we were to get images hosted on websites located in a country (or some version of this), they would still not be a representative set of people (in a country, in that language) with that name.
 
 4. Most names are not given uniquely to males or females. Instead, there is a distribution. For instance, some people named Jesse are men, others women. We elide over this point in the validation exercise. If we had good data on the gender of first names, we wouldn't be doing all this.   
 
