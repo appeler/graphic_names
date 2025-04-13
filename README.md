@@ -44,3 +44,11 @@ To assess the validity of the method, we use a dataset of people whose gender is
 
 ### License
 Released under [CC BY 2.0](https://creativecommons.org/licenses/by/2.0/).
+
+## 🔗 Adjacent Repositories
+
+- [appeler/namesexdata](https://github.com/appeler/namesexdata) — Data on international first names and sex of people with that name
+- [appeler/search_names](https://github.com/appeler/search_names) — Search a long list of names (patterns) in a large text corpus systematically and quickly
+- [appeler/naamkaran](https://github.com/appeler/naamkaran) — generative model for names
+- [appeler/naampy](https://github.com/appeler/naampy) — Infer Sociodemographic Characteristics from Names Using Indian Electoral Rolls
+- [appeler/pranaam](https://github.com/appeler/pranaam) — pranaam: predict religion based on name
